@@ -17,7 +17,7 @@ const messageEl = document.querySelector('#message')
 /*-------------------------------- Functions --------------------------------*/
 const init = () => {
     console.log('init function worked')
-    board = ['','','','','','','','','','']
+    board = ['P','E','R','R','O','L','O','C','O']
     turn = 'x'
     winner = false
     tie = false
@@ -25,17 +25,29 @@ const init = () => {
 }
 
 const render = () => {
-
+    updateBoard()
+    updateMessage()
 }
+
 const updateBoard = () => {
     board.map((element, idx) => {
-        console.log(squareEls[idx]) 
+        
+        console.log(idx) 
+        console.log(squareEls[idx].textContent = element) 
     })
 }
 
-
+const updateMessage = () => {
+    if (winner === false && tie === false){
+        console.log('whos turn it is')
+    }else if (winner === false && tie === true){
+        console.log('tie!')
+    }else {
+        console.log('cogratulation to player something')
+    }
+}
 init()
-updateBoard()
+
 /*----------------------------- Event Listeners -----------------------------*/
 
 
