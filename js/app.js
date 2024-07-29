@@ -64,10 +64,11 @@ const placePiece = (idx) => {
 const checkForWinner = () => {
     winningCombos.map((winningCombo) => {
         if (board[winningCombo[0]] !=='' && board[winningCombo[0]] === board[winningCombo[1]] && board[winningCombo[1]] === board[winningCombo[2]]) {
-            console.log('winner')    
+                winner = true
         }
         
     })
+    console.log(winner)
 }
 const checkForTie = () => {
     if (winner === true) {
@@ -103,6 +104,8 @@ const handleClick = (event) => {
     placePiece(squareIndex)
     checkForWinner()
     checkForTie()
+    switchPlayerTurn()
+    render()
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
