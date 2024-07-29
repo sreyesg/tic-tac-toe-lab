@@ -63,31 +63,17 @@ const placePiece = (idx) => {
 }
 const checkForWinner = () => {
     winningCombos.map((winningCombo) => {
-        console.log('combo >>>', winningCombo)
-        console.log(board[winningCombo[0]])
-        console.log(board[winningCombo[1]])
-        console.log(board[winningCombo[2]])
+        // console.log('combo >>>', winningCombo)
+        // console.log(board[winningCombo[0]])
+        // console.log(board[winningCombo[1]])
+        // console.log(board[winningCombo[2]])
         if (board[winningCombo[0]] !=='' && board[winningCombo[0]] === board[winningCombo[1]] && board[winningCombo[1]] === board[winningCombo[2]]) {
             console.log('winner')    
         }
         
     })
 }   
-        
-        
-//         .map((idxPosition) => {
-//             // console.log('value at position >>>',board[winningCombo[0]])
-//              
-            
-//             // collectValues.push(board[element])
-            
-//         })
-//     })  
-//     // console.log(collectValues)
-// }
-
 init()
-
 const handleClick = (event) => {
     // console.log('event working')
     const squareIndex = event.target.id
