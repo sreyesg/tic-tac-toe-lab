@@ -18,5 +18,11 @@ body {
     font-size: 64px;
     text-align: center;
   }
-
+  #reset {
+    color: blue;
+    font-size: 36;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+  }
   

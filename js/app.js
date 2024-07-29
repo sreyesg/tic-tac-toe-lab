@@ -4,7 +4,7 @@ const winningCombos = [
     [3,4,5],
     [6,7,8],
     [0,3,6],
-    [1,4,8],
+    [1,4,7],
     [2,5,8],
     [0,4,8],
     [2,4,6]
@@ -21,7 +21,7 @@ let tie
 
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.querySelector('#message')
-
+const resetBtnEl = document.querySelector('#reset')
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -50,11 +50,13 @@ const updateBoard = () => {
 
 const updateMessage = () => {
     if (winner === false && tie === false){
-        console.log('whos turn it is')
+        messageEl.innerHTML = 'whos turn it is'
     }else if (winner === false && tie === true){
-        console.log('tie!')
+        messageEl.innerHTML = 'tie!'
+        
     }else {
-        console.log('cogratulation to player something')
+        messageEl.innerHTML = `cogratulation!! player ${turn} has won`
+
     }
 }
 const placePiece = (idx) => {
@@ -113,3 +115,4 @@ Array.from(squareEls).map((square) => {
     square.addEventListener('click',handleClick)
 })
 
+resetBtnEl.addEventListener('click', init)
