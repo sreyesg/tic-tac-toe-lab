@@ -28,7 +28,7 @@ const messageEl = document.querySelector('#message')
 
 const init = () => {
     console.log('init function worked')
-    board = ['x','x','x','','','','','','']
+    board = ['','','','','','','','','']
     turn = 'x'
     winner = false
     tie = false
@@ -62,22 +62,29 @@ const placePiece = (idx) => {
     console.log(board)
 }
 const checkForWinner = () => {
-    let collectValues = []
     winningCombos.map((winningCombo) => {
         console.log('combo >>>', winningCombo)
-        winningCombo.map((idxPosition) => {
-            console.log('value at position >>>',board[idxPosition])
-            if (board[idxPosition] !=='' && board[idxPosition] === board[idxPosition +1] && board[idxPosition] === board[idxPosition+2]) {
-                winner = true
-                console.log('result', winner)
-            } 
+        console.log(board[winningCombo[0]])
+        console.log(board[winningCombo[1]])
+        console.log(board[winningCombo[2]])
+        if (board[winningCombo[0]] !=='' && board[winningCombo[0]] === board[winningCombo[1]] && board[winningCombo[1]] === board[winningCombo[2]]) {
+            console.log('winner')    
+        }
+        
+    })
+}   
+        
+        
+//         .map((idxPosition) => {
+//             // console.log('value at position >>>',board[winningCombo[0]])
+//              
             
-            // collectValues.push(board[element])
+//             // collectValues.push(board[element])
             
-        })
-    })  
-    // console.log(collectValues)
-}
+//         })
+//     })  
+//     // console.log(collectValues)
+// }
 
 init()
 
