@@ -80,7 +80,17 @@ const checkForTie = () => {
     }
     console.log(tie)
 }  
- 
+const switchPlayerTurn = () => {
+    if (winner === true){
+        return
+    }
+    if( turn === 'x') {
+        turn = 'o'
+    }else {
+        turn = 'x'
+    }
+    console.log(turn)
+}
 init()
 const handleClick = (event) => {
     // console.log('event working')
