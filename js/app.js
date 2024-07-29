@@ -28,7 +28,7 @@ const messageEl = document.querySelector('#message')
 
 const init = () => {
     console.log('init function worked')
-    board = ['O','E','R','R','O','K','O','C','O']
+    board = ['x','x','x','','','','','','']
     turn = 'x'
     winner = false
     tie = false
@@ -43,7 +43,7 @@ const render = () => {
 const updateBoard = () => {
     board.map((element, idx) => {
         
-        console.log(idx) 
+        // console.log(idx) 
         console.log(squareEls[idx].textContent = element) 
     })
 }
@@ -57,25 +57,44 @@ const updateMessage = () => {
         console.log('cogratulation to player something')
     }
 }
-// const placePiece = (idx) => {
-//     board[idx] = turn
-//     console.log(board)
-// }
+const placePiece = (idx) => {
+    board[idx] = turn
+    console.log(board)
+}
+const checkForWinner = () => {
+    let collectValues = []
+    winningCombos.map((winningCombo) => {
+        console.log('combo >>>', winningCombo)
+        winningCombo.map((idxPosition) => {
+            console.log('value at position >>>',board[idxPosition])
+            if (board[idxPosition] !=='' && board[idxPosition] === board[idxPosition +1] && board[idxPosition] === board[idxPosition+2]) {
+                winner = true
+                console.log('result', winner)
+            } 
+            
+            // collectValues.push(board[element])
+            
+        })
+    })  
+    // console.log(collectValues)
+}
 
 init()
 
 const handleClick = (event) => {
-    console.log(event)
+    // console.log('event working')
+    const squareIndex = event.target.id
+    if (board[squareIndex] === 'x' || board[squareIndex] === 'o') {
+        return
+    }else if (winner === true) {
+        return
+    }
     placePiece(squareIndex)
-    console.log('event working')
-
+    checkForWinner()
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
-console.log(typeof squareEls)
-
 Array.from(squareEls).map((square) => {
-    console.log(square)
     square.addEventListener('click',handleClick)
 })
 
